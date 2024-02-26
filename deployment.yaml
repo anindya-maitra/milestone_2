@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quotes-app
+  labels:
+    app: quotes-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quotes
+  template:
+    metadata:
+      labels:
+        app: quotes
+    spec:
+      containers:
+      - name: quotes
+        image: anindyamaitra/quotes-app:latest
+        ports:
+        - containerPort: 5000
